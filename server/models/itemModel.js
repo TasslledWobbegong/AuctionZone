@@ -18,20 +18,35 @@ const Schema = mongoose.Schema;
 
 // sets a schema for the 'species' collection
 const itemSchema = new Schema({
-  buyoutPrice: Number, // <-- Must be 69420
-  currentBid: Number,
-  description: String,
-  img: String,
-  name: String,
-  sold: Boolean,
-  timeRemaining: Number,
+  itemID: Number,
+  itemTitle: String,
+  itemInitialPrice: Number,
+  itemCurrentPrice: Number,
+  itemDescription: String,
+  itemDeadline: Number, // <-- **** Needs to be changed to timestamp / date time somehow
+  itemBuyoutPrice: Number,
+  isBought: Boolean,
+  itemImage: String,
   user_id: { // <-- property values may need editing
     // type of ObjectId makes this behave like a foreign key referencing the 'user' collection
     type: Schema.Types.ObjectId,
     ref: "user",
   },
+
+  // buyoutPrice: Number, // <-- Must be 69420
+  // currentBid: Number,
+  // description: String,
+  // img: String,
+  // name: String,
+  // sold: Boolean,
+  // timeRemaining: Number,
+  // user_id: { // <-- property values may need editing
+  //   // type of ObjectId makes this behave like a foreign key referencing the 'user' collection
+  //   type: Schema.Types.ObjectId,
+  //   ref: "user",
+  // },
 });
 
-const Item = mongoose.model("Item", itemSchema);
+const Item = mongoose.model("Item", itemSchema); // <-- collections 'items' is assigned by Mongoose by default
 
 module.exports = Item;
