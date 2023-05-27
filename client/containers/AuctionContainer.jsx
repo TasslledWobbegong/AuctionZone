@@ -22,7 +22,7 @@ import AuctionDisplay from '../components/AuctionDisplay.jsx'
 
 
 
-class MarketContainer extends Component {
+class AuctionContainer extends Component {
     render() {
         return (
             <div className='innerbox'>
@@ -31,4 +31,4 @@ class MarketContainer extends Component {
         )
     }
 }
-export default MarketContainer;
+export default AuctionContainer;
