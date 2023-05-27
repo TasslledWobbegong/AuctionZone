@@ -14,6 +14,7 @@ import React from 'react';
 import { connect } from react-redux;
 import AuctionContainer from './AuctionContainer';
 import * as actions from './actions/actions';
+import AuctionTotalDisplay from "../components/AuctionTotalDisplay"
 
 
 //-----mapStateToProps-----Connecting Redux state to component props.
@@ -33,6 +34,11 @@ const MainContainer = props => (
     <div className='container'>
         <div className='outerbox'>
             <h1 id='mainheader'>AuctionZone</h1>
+            <AuctionTotalDisplay 
+                totalItems={props.totalItems}
+                totalUsers={props.totalUsers}
+                itemsList={props.itemsList} 
+                />
             <AuctionContainer/>
         </div>
     </div>
