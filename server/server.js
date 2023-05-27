@@ -18,6 +18,20 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 // route handlers
 app.use('/api', apiRouter);
 
+// Catch-all error handler IF WE HAD ONE!
+
+
+// Global error handler:
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: "Express error handler caught unknown router error",
+    status: 500,
+    message: { err: "An error occurred" },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
