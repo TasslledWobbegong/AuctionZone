@@ -19,8 +19,8 @@ import * as actions from '../actions/actions';
 import AuctionDisplay from '../components/AuctionDisplay.jsx'
 
 //-----mapStateToProps-----Connecting Redux state to component props.
-const mapStateToProps = ({ auction }) => ({
-    itemList: auction.itemList,
+const mapStateToProps = (state) => ({
+    itemList: state.marketplace.itemList,
 })
 
 const mapDispatchToProps = dispatch => ({

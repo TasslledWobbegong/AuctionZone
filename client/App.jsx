@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.scss';
+import AuctionContainer from './containers/AuctionContainer';
 
 class App extends Component {
     render() {
@@ -7,7 +8,7 @@ class App extends Component {
         <div className='App'>
             <div className='pages'>
                 <h1>AUCTION ZONE is here to stay!</h1>
-                <MainContainer/>
+                <AuctionContainer/>
             </div>
         </div>
       );

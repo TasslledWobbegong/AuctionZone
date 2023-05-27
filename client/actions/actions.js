@@ -12,7 +12,7 @@
 // import action type constants
 import axios from 'axios';
 import * as types from '../constants/actionTypes';
-import { error } from 'console';
+// import { error } from 'console';
 
 // make action creators
 
