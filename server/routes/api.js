@@ -64,8 +64,47 @@ router.post('/items', async (req, res, next) => {
   } 
 });
 
-// Patch request to update bid amount
+/*
+User.updateOne({age:{$gte:5}}, 
+    {name:"ABCD"}, function (err, docs) {
+    if (err){
+        console.log(err)
+    }
+    else{
+        console.log("Updated Docs : ", docs);
+    }
+});
+*/
 
+// Patch request to update bid amount
+router.patch('/items', async (req, res, next) => { 
+  // .save method:
+    // Deconstruct variables from req.body
+    const {_id, itemID, itemCurrentPrice, isBought} = req.body; // *** Consider pulling out buyout price to handle currentPrice > buyouyPrice logic?
+  
+  
+    // Use model create method to create document in db
+  
+  // .create method:
+
+    // if isBought is 
+    // itemCurrentPrice = undefined
+      // 
+    // regular bid
+      // update itemCurrentPrice
+    // buyout
+      // isBought switch to true
+  
+    try { 
+    console.log('in post Items router');
+    const updated = await Item.updateOne({ itemID}, {itemCurrentPrice, isBought});
+    console.log(updated)
+    // res.locals.items = 2;
+    res.status(200).json(updated);
+    } catch(error) {
+      next(new Error("ERROR IN PATCH ITEM", { cause: error }))
+    } 
+  });
 // Patch request to update bought status
 
 // Delete an item
