@@ -7,6 +7,7 @@ class App extends Component {
         <div className='App'>
             <div className='pages'>
                 <h1>AUCTION ZONE is here to stay!</h1>
+                <MainContainer/>
             </div>
         </div>
       );
