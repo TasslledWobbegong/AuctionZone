@@ -12,7 +12,7 @@
 //-----import required modules
 import React from 'react';
 import { connect } from react-redux;
-import MarketContainer from './MarketContainer';
+import AuctionContainer from './AuctionContainer';
 import * as actions from './actions/actions';
 
 
@@ -33,7 +33,7 @@ const MainContainer = props => (
     <div className='container'>
         <div className='outerbox'>
             <h1 id='mainheader'>AuctionZone</h1>
-            <MarketContainer/>
+            <AuctionContainer/>
         </div>
     </div>
 )
