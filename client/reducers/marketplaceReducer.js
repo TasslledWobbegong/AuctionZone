@@ -21,6 +21,7 @@ const initialState = {
     lastItemID:1000,
 }
 
+// MODEL OF NEW ITEM OBJECT
 // newItem = {
 //     itemID: 1000,
 //     itemTitle: 'title',
@@ -39,18 +40,19 @@ const marketplaceReducer = (state = initialState, action) => {
 
   switch (action.type) {
     // change the property value of itemCurrentPrice in itemList element with corresponding itemID
-    case types.MAKE_BID: {
-      const { itemID, newBid } = action.payload;
+    case types.MAKE_BID_SUCCESS: {
+      const { itemID, itemCurrentPrice } = action.payload;
       const newItemList = state.itemList;
       const index = newItemList.findIndex(item => item.itemID === itemID);
-      newItemList[index].itemCurrentPrice = newBid;
+      newItemList[index].itemCurrentPrice = itemCurrentPrice;
       return {
         ...state,
         itemList: newItemList,
       };
     }
     // change the property value of isBought in itemList element with corresponding itemID
-    case types.BUYOUT_ITEM: {
+    // later will be removed from itemList to only be displayed in user purchase history
+    case types.BUYOUT_ITEM_SUCCESS: {
       const { itemID } = action.payload;
       const newItemList = state.itemList;
       const index = newItemList.findIndex(item => item.itemID === itemID);
@@ -61,7 +63,7 @@ const marketplaceReducer = (state = initialState, action) => {
       };
     }
     // will remove the element in itemList with corresponding itemID
-    case types.DELETE_ITEM: {
+    case types.DELETE_ITEM_SUCCESS: {
       const { itemID } = action.payload;
       const newItemList = state.itemList;
       const index = newItemList.findIndex(item => item.itemID === itemID);
@@ -74,19 +76,40 @@ const marketplaceReducer = (state = initialState, action) => {
       };
     }
 
-    case types.POST_ITEM: {
+    case types.POST_ITEM_SUCCESS: {
       // will create a new item in itemList saving user inputs as properties
       const { newItem } = action.payload;
       newItem.itemID = state.lastItemID;
       const newLastItemID = state.lastItemID + 1;
       const newItemList = state.itemList;
       newItemList.push(newItem);
-
       return {
         ...state,
         itemList: newItemList,
         lastItemID: newLastItemID,
       }
+    }
+
+    // Currently all error cases have the same functionality, but consider specific functionality per error
+    case types.MAKE_BID_ERROR:  {
+      const { message } = action.payload.error;
+      console.log(message);
+      return state;
+    }
+    case types.BUYOUT_ITEM_ERROR: {
+      const { message } = action.payload.error;
+      console.log(message);
+      return state;
+    }
+    case types.DELETE_ITEM_ERROR: {
+      const { message } = action.payload.error;
+      console.log(message);
+      return state;
+    }
+    case types.POST_ITEM_ERROR: {
+      const { message } = action.payload.error;
+      console.log(message);
+      return state;
     }
 
     default: {
