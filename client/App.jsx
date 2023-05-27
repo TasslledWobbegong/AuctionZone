@@ -6,7 +6,7 @@ class App extends Component {
       return (
         <div className='App'>
             <div className='pages'>
-                <h1>Auction Zone is here to stay!</h1>
+                <h1>AUCTION ZONE is here to stay!</h1>
             </div>
         </div>
       );
