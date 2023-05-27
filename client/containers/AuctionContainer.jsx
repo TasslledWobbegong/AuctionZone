@@ -18,17 +18,29 @@ import * as actions from '../actions/actions';
 //import child component
 import AuctionDisplay from '../components/AuctionDisplay.jsx'
 
+//-----mapStateToProps-----Connecting Redux state to component props.
+const mapStateToProps = ({ auction }) => ({
+    itemList: auction.itemList,
+})
+
+const mapDispatchToProps = dispatch => ({
+    increaseBid: (itemId) => dispatch(actions.makeBidActionCreator(itemId)),
+    buyout: (itemId) => dispatch(actions.buyoutItemActionCreator(itemId)),
+    delete: (itemId) => dispatch(actions.deleteItemActionCreator(itemId))
+})
+
+//-----rendering a Auction container.
+const AuctionContainer = (props) => (
+    <div className='innerbox'>
+                <AuctionDisplay 
+                itemList={props.itemList}
+                increaseBid={props.increaseBid}
+                buyout={props.buyout}
+                delete={props.delete}
+                />
+    </div>
+
+)
 
 
-
-
-class AuctionContainer extends Component {
-    render() {
-        return (
-            <div className='innerbox'>
-                <AuctionDisplay />
-            </div>
-        )
-    }
-}
-export default AuctionContainer;
+export default connect(mapStateToProps, mapDispatchToProps) (AuctionContainer);
