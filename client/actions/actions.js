@@ -20,7 +20,7 @@ import * as types from '../constants/actionTypes';
 export const makeBidActionCreator = (itemID, itemCurrentPrice) => {
   return async (dispatch) => {
     try {
-      const response = await axios.patch('/items', { itemID, itemCurrentPrice });
+      const response = await axios.patch('/api/items', { itemID, itemCurrentPrice });
       console.log(response);
       dispatch({ 
         type: types.MAKE_BID_SUCCESS, 
@@ -40,7 +40,7 @@ export const makeBidActionCreator = (itemID, itemCurrentPrice) => {
 export const buyoutItemActionCreator = (itemID, isBought) => {
   return async (dispatch) => {
     try {
-      const response = await axios.patch('/items', { itemID, isBought });
+      const response = await axios.patch('/api/items', { itemID, isBought });
       console.log(response);
       dispatch({ type: types.BUYOUT_ITEM_SUCCESS, payload: itemID });
     } catch (error) {
@@ -53,7 +53,7 @@ export const buyoutItemActionCreator = (itemID, isBought) => {
 export const deleteItemActionCreator = itemID => {
   return async (dispatch) => {
     try {
-      const response = await axios.delete('/items', { itemID });
+      const response = await axios.delete('/api/items', { itemID });
       console.log(response);
       dispatch({ type: types.DELETE_ITEM_SUCCESS, payload: itemID });
     } catch (error) {
@@ -62,13 +62,11 @@ export const deleteItemActionCreator = itemID => {
   }
 };
 
-
-
 // will create a new item in itemList saving user inputs as properties
 export const postItemActionCreator = newItem => {
   return async (dispatch) => {
     try {
-      const response = await axios.post('/items', { newItem });
+      const response = await axios.post('/api/items', { newItem });
       console.log(response);
       dispatch({ type: types.POST_ITEM_SUCCESS, payload: newItem });
     } catch (error) {
@@ -80,11 +78,13 @@ export const postItemActionCreator = newItem => {
 export const getItemsActionCreator = () => {
   return async (dispatch) => {
     try {
-      const itemList = await axios.get('/items');
-      console.log(itemList);
-      dispatch({ type: types.GET_ITEMS_SUCCESS, payload: itemList }); 
+      const response = await axios.get('/api/items');
+      const itemList = response.data;
+      console.log('this is itemList:', itemList);
+      dispatch({ type: types.GET_ITEMS_SUCCESS, payload: { itemList: itemList } }); 
     } catch (error) {
-      dispatch({ type: types.GET_ITEMS_ERROR, payload: error.message });
+      // error.message = 'getItems error'
+      dispatch({ type: types.GET_ITEMS_ERROR, payload: error.message || 'Error retrieving items' });
     }
   }
 };

@@ -7,7 +7,7 @@ const AuctionItem = props => (
             <label className='title'>{props.itemTitle}</label>
         </div>
         <div>
-            <img src={this.image}></img>
+            <img src={props.itemImage}></img>
         </div>
         <div>
             <span className='price'>Price: {props.currPrice}</span>
