@@ -3,7 +3,7 @@
  *
  * @module  marketsReducer
  * @author Johanna Cameron
- * @date 5/27/22
+ * @date 5/29/22
  * @description reducer for marketplaceData
  *
  * ************************************
@@ -90,9 +90,11 @@ const marketplaceReducer = (state = initialState, action) => {
       }
     }
 
-    // add 2 cases for get success and get error
+    // will change value of itemList to received array from database, change totalItems ans lastItemID
     case types.GET_ITEMS_SUCCESS: {
+      console.log('action console',action)
       const { itemList } = action.payload;
+      console.log('retrieved itemList', itemList)
       return {
         ...state,
         itemList: itemList,
@@ -102,28 +104,23 @@ const marketplaceReducer = (state = initialState, action) => {
     }
     // Currently all error cases have the same functionality, but consider specific functionality per error
     case types.MAKE_BID_ERROR:  {
-      const { message } = action.payload.error;
-      console.log('MAKE_BID_ERROR:', message);
+      console.log('MAKE_BID_ERROR');
       return state;
     }
     case types.BUYOUT_ITEM_ERROR: {
-      const { message } = action.payload.error;
-      console.log('BUYOUT_ITEM_ERROR:', message);
+      console.log('BUYOUT_ITEM_ERROR');
       return state;
     }
     case types.DELETE_ITEM_ERROR: {
-      const { message } = action.payload.error;
-      console.log('DELETE_ITEM_ERROR:', message);
+      console.log('DELETE_ITEM_ERROR');
       return state;
     }
     case types.POST_ITEM_ERROR: {
-      const { message } = action.payload.error;
-      console.log('POST_ITEM_ERROR:', message);
+      console.log('POST_ITEM_ERROR');
       return state;
     }
     case types.GET_ITEMS_ERROR: {
-      const { message } = action.payload.error;
-      console.log('GET_ITEMS_ERROR:', message);
+      console.log('GET_ITEMS_ERROR');
       return state;
     }
 
