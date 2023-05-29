@@ -90,25 +90,40 @@ const marketplaceReducer = (state = initialState, action) => {
       }
     }
 
+    // add 2 cases for get success and get error
+    case types.GET_ITEMS_SUCCESS: {
+      const { itemList } = action.payload;
+      return {
+        ...state,
+        itemList: itemList,
+        totalItems: itemList.length,
+        lastItemID: itemList[itemList.length-1].itemID,
+      }
+    }
     // Currently all error cases have the same functionality, but consider specific functionality per error
     case types.MAKE_BID_ERROR:  {
       const { message } = action.payload.error;
-      console.log(message);
+      console.log('MAKE_BID_ERROR:', message);
       return state;
     }
     case types.BUYOUT_ITEM_ERROR: {
       const { message } = action.payload.error;
-      console.log(message);
+      console.log('BUYOUT_ITEM_ERROR:', message);
       return state;
     }
     case types.DELETE_ITEM_ERROR: {
       const { message } = action.payload.error;
-      console.log(message);
+      console.log('DELETE_ITEM_ERROR:', message);
       return state;
     }
     case types.POST_ITEM_ERROR: {
       const { message } = action.payload.error;
-      console.log(message);
+      console.log('POST_ITEM_ERROR:', message);
+      return state;
+    }
+    case types.GET_ITEMS_ERROR: {
+      const { message } = action.payload.error;
+      console.log('GET_ITEMS_ERROR:', message);
       return state;
     }
 
