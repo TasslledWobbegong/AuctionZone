@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles/App.scss';
 import AuctionContainer from './containers/AuctionContainer';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 class App extends Component {
     render() {
