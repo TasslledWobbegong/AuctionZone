@@ -26,7 +26,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     increaseBid: (itemID) => dispatch(actions.makeBidActionCreator(itemID)),
     buyout: (itemID) => dispatch(actions.buyoutItemActionCreator(itemID)),
-    delete: (itemID) => dispatch(actions.deleteItemActionCreator(itemID))
+    delete: (itemID) => dispatch(actions.deleteItemActionCreator(itemID)),
+    getItems: () => dispatch(actions.getItemsActionCreator()),
 })
 
 //-----rendering a Auction container.
@@ -37,6 +38,7 @@ const AuctionContainer = (props) => (
                 increaseBid={props.increaseBid}
                 buyout={props.buyout}
                 delete={props.delete}
+                getItems={props.getItems}
                 />
     </div>
 

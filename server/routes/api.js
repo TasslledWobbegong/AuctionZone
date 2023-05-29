@@ -3,11 +3,7 @@ const router = express.Router();
 const Item = require('../models/itemModel.js')
 
 
-// PRIORITY REQUESTS TO MAKE:
-// Items:
 
-// localhost:3000/api/items/
-// localhost:3000/api/users/
 
 // Get all items 
 router.get('/items', async (req, res, next) => {
@@ -23,10 +19,9 @@ router.get('/items', async (req, res, next) => {
   } 
 });
 
-// Get one item
-// Post an item
-
 /*
+  SCHEMA:
+
   itemID: Number,
   itemTitle: String,
   itemInitialPrice: Number,
@@ -44,14 +39,7 @@ router.get('/items', async (req, res, next) => {
 */
 
 router.post('/items', async (req, res, next) => {
-// .save method:
-  // Deconstruct variables from req.body
   const {_id, itemID, itemTitle, itemInitialPrice, itemCurrentPrice, itemDescription, itemDeadline, itemBuyoutPrice, isBought,itemImage } = req.body;
-
-
-  // Use model create method to create document in db
-
-// .create method:
 
   try { 
   console.log('in post Items router');
@@ -64,36 +52,10 @@ router.post('/items', async (req, res, next) => {
   } 
 });
 
-/*
-User.updateOne({age:{$gte:5}}, 
-    {name:"ABCD"}, function (err, docs) {
-    if (err){
-        console.log(err)
-    }
-    else{
-        console.log("Updated Docs : ", docs);
-    }
-});
-*/
-
 // Patch request to update bid amount
 router.patch('/items', async (req, res, next) => { 
-  // .save method:
-    // Deconstruct variables from req.body
-    const {_id, itemID, itemCurrentPrice, isBought} = req.body; // *** Consider pulling out buyout price to handle currentPrice > buyouyPrice logic?
-  
-  
-    // Use model create method to create document in db
-  
-  // .create method:
 
-    // if isBought is 
-    // itemCurrentPrice = undefined
-      // 
-    // regular bid
-      // update itemCurrentPrice
-    // buyout
-      // isBought switch to true
+    const {_id, itemID, itemCurrentPrice, isBought} = req.body; // *** Consider pulling out buyout price to handle currentPrice > buyouyPrice logic?
   
     try { 
     console.log('in post Items router');
@@ -105,24 +67,15 @@ router.patch('/items', async (req, res, next) => {
       next(new Error("ERROR IN PATCH ITEM", { cause: error }))
     } 
   });
-// Patch request to update bought status
 
 // Delete an item
 router.delete('/items', async (req, res, next) => {
-  // .save method:
-    // Deconstruct variables from req.body
+
     const {itemID} = req.body;
-  
-  
-    // Use model create method to create document in db
-  
-  // .create method:
   
     try { 
     console.log('in post Items router');
     const deleted = await Item.deleteOne({itemID});
-    console.log(deleted)
-    // res.locals.items = 2;
     res.status(200).json(deleted);
     } catch(error) {
       next(new Error("ERROR IN POST ITEM", { cause: error }))
