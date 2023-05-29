@@ -1,0 +1,92 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Chokokutai:regular);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat"
+}
+
+body {
+    background: lighten(rgb(165, 245, 188),0%);
+}
+
+.container{
+    padding: 15px;
+    // background-color: aqua;
+}
+
+.allAuctionItems{
+    background-color: rgb(9, 194, 194);
+    border: solid 2px;
+    border-color: rgb(103, 102, 102);
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 5px 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.allButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    button {
+        border-radius: 5px;
+        background-color: aquamarine;
+        padding: 10px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    button:hover{
+        transform: 10px;
+        background-color: rgb(14, 169, 117);
+    }
+}
+
+.auctionItem{
+    border: solid;
+    border-radius: 30px;
+    border-color:gray;
+    border-width: 1px;
+    padding: 30px;
+    margin: 10px;
+    background-color: lighten(aqua,40%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    .price-deadline{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+img {
+    height: 300px;
+    width: 300px;
+    border-radius: 10%;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    border-radius: 5px;
+    border:solid;
+    font-size: 15px;
+    border-width: 1px;
+    border-color: gray;
+}
+
+h1{
+    text-align: center;
+}
