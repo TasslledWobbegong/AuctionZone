@@ -80,7 +80,7 @@ export const getItemsActionCreator = () => {
     try {
       const response = await axios.get('/api/items');
       const itemList = response.data;
-      console.log('this is itemList:', itemList);
+      console.log('itemList in getItemsActionCreator:', itemList);
       dispatch({ type: types.GET_ITEMS_SUCCESS, payload: { itemList: itemList } }); 
     } catch (error) {
       // error.message = 'getItems error'

@@ -36,7 +36,8 @@ const mapStateToProps = state => ({
 const MainContainer = props => (
     <div className='container'>
         <div className='outerbox'>
-            <h1 id='mainheader'>AuctionZone</h1>
+            <h1 id='mainheader'>AUCTIONZONE</h1>
+            {/* <Link to="/post" className="links" id="homeLink">Post</Link> */}
             <AuctionTotalDisplay 
                 totalItems={props.totalItems}
                 totalUsers={props.totalUsers}

@@ -5,29 +5,44 @@ import AuctionItem from './AuctionItem.jsx';
 import { useEffect, useState } from 'react';
 
 const AuctionDisplay = (props) => {
-    const [items, setItems] = useState([]);
-    
+    // const [items, setItems] = useState([]);
 
-useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await props.getItems();
-        console.log('data in async func', data);
-        setItems(data);
-      } catch (error) {
-        // Handle error if needed
-      }
-    };
-  
-    fetchData();
-  }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await props.getItems();
+                // setItems(data);
+            } catch (error) {
+                // Handle error if needed
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const buyoutHandler = async (itemID) => {
+        try {
+            await props.buyout(itemID);
+        } catch (error) {
+            // Handle error
+        }
+    }
+
+    const deleteHandler = async () => {
+        try {
+            await props.delete(itemID);
+        } catch (error) {
+            // Handle error
+        }
+    }
 
     const itemMaker = (item, index, props) => (
         <AuctionItem
             {...item}
             increaseBid={() => props.increaseBid(item.itemID)}
-            buyout={() => props.buyout(item.itemID)}
-            delete={() => props.delete(item.itemID)}
+            buyout={() => buyoutHandler(item.itemID)}
+            delete={() => deleteHandler(item.itemID)}
             key={index}
             itemTitle={item.itemTitle}
             initialPrice={item.itemInitialPrice}
@@ -39,7 +54,7 @@ useEffect(() => {
         />
     );
 
-    console.log('items: ', items)
+    // console.log('items: ', items)
     return (
         <div className='displayBox'>
             <h4>Auction Items</h4>
