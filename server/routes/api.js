@@ -40,7 +40,7 @@ router.get('/items', async (req, res, next) => {
 
 router.post('/items', async (req, res, next) => {
   const {_id, itemID, itemTitle, itemInitialPrice, itemCurrentPrice, itemDescription, itemDeadline, itemBuyoutPrice, isBought,itemImage } = req.body;
-
+  console.log(req.body)
   try { 
   console.log('in post Items router');
   const newPost = await Item.create({_id, itemID, itemTitle, itemInitialPrice, itemCurrentPrice, itemDescription, itemDeadline, itemBuyoutPrice, isBought,itemImage});
