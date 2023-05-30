@@ -1,4 +1,6 @@
 // AUCTION ZONE!
+const dotenv = require('dotenv')
+dotenv.config();
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -6,7 +8,6 @@ const bodyParser = require('body-parser');
 const Item = require('./models/itemModel.js');
 const path = require('path');
 const apiRouter = require('./routes/api');
-
 
 app.use(bodyParser.json());
 app.use(express.json());
