@@ -16,6 +16,26 @@ body {
     // background-color: aqua;
 }
 
+.mainContainer-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    background-color: rgb(9, 194, 194);
+    border: solid 2px;
+    border-color: rgb(103, 102, 102);
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    padding: 10px;
+    text-decoration: none;
+    color: black
+}
+
+.links:hover{
+    background-color: rgb(14, 169, 117);
+}
+
 .allAuctionItems{
     background-color: rgb(9, 194, 194);
     border: solid 2px;
@@ -101,7 +121,7 @@ h1{
 }
 
 .post-item {
-    margin-top: 50px;
+    margin-top: 0px;
     height: fit-content;
     width: 500px;
     padding: 100px;
