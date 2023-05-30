@@ -23,7 +23,7 @@ const itemSchema = new Schema({
   itemInitialPrice: Number,
   itemCurrentPrice: Number,
   itemDescription: String,
-  itemDeadline: Number, // <-- **** Needs to be changed to timestamp / date time somehow
+  itemDeadline: String, // <-- **** Needs to be changed to timestamp / date time somehow
   itemBuyoutPrice: Number,
   isBought: Boolean,
   itemImage: String,
