@@ -64,9 +64,10 @@ export const deleteItemActionCreator = itemID => {
 
 // will create a new item in itemList saving user inputs as properties
 export const postItemActionCreator = newItem => {
+  console.log('this is a newItem object', newItem);
   return async (dispatch) => {
     try {
-      const response = await axios.post('/api/items', { newItem });
+      const response = await axios.post('/api/items', newItem);
       console.log(response);
       dispatch({ type: types.POST_ITEM_SUCCESS, payload: newItem });
     } catch (error) {

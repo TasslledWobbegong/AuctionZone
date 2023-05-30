@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles/App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainContainer from './containers/MainContainer';
-// import PostContainer from './containers/PostContainer';
+import PostContainer from './containers/PostContainer';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
           {/* <h1>AUCTION ZONE is here to stay!</h1> */}
           <Routes>
             <Route path="/" element={<MainContainer />} />
-            {/* <Route path="/post" element={<PostContainer />} /> */}
+            <Route path="/post" element={<PostContainer />} />
           </Routes>
         </div>
       </div>

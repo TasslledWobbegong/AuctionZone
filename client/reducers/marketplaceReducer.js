@@ -79,7 +79,6 @@ const marketplaceReducer = (state = initialState, action) => {
     case types.POST_ITEM_SUCCESS: {
       // will create a new item in itemList saving user inputs as properties
       const { newItem } = action.payload;
-      newItem.itemID = state.lastItemID;
       const newLastItemID = state.lastItemID + 1;
       const newItemList = state.itemList;
       newItemList.push(newItem);

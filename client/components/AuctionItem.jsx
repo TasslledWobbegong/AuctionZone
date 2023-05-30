@@ -17,7 +17,7 @@ const AuctionItem = props => (
             <p className='buynow'>Buy It Now: {props.itemBuyout}</p>
         </div>
         <div>
-            <p>description: {props.itemDes}</p>
+            <p>Description: {props.itemDes}</p>
         </div>
         <div className='allButtons'>
             <button onClick={() => props.increaseBid(props.itemID)}>Add Bid</button>
