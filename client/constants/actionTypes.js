@@ -1,6 +1,12 @@
 // add action type constants
 
-export const MAKE_BID = 'MAKE_BID';
-export const BUYOUT_ITEM = 'BUYOUT_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
-export const POST_ITEM = 'POST_ITEM';
+export const MAKE_BID_SUCCESS = 'MAKE_BID_SUCCESS';
+export const MAKE_BID_ERROR = 'MAKE_BID_ERROR';
+export const BUYOUT_ITEM_SUCCESS = 'BUYOUT_ITEM_SUCCESS';
+export const BUYOUT_ITEM_ERROR = 'BUYOUT_ITEM_ERROR';
+export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
+export const DELETE_ITEM_ERROR = 'DELETE_ITEM_ERROR';
+export const POST_ITEM_SUCCESS = 'POST_ITEM_SUCCESS';
+export const POST_ITEM_ERROR = 'POST_ITEM_ERROR';
+export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
+export const GET_ITEMS_ERROR = 'GET_ITEMS_ERROR';
